@@ -1,0 +1,211 @@
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+header {
+    background-color: #c78707;
+    color: rgb(11, 8, 8);
+    padding: 1em 0;
+}
+
+header .logo h1 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 2em;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ce8206;
+}
+
+/* Hero section */
+.hero {
+    background: url('/static/bgimg.jpg') center/cover no-repeat;
+    height: 88vh; /* Adjust the height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-size: cover; /* Ensures the image covers the section */
+    background-position: center; /* Centers the image */
+}
+
+.hero-text {
+    text-align: center;
+    color: white;
+    z-index: 1; /* Ensures the text stays above the background images */
+    position: relative;
+}
+
+.hero:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Adds a dark overlay to make the text stand out */
+    z-index: 0; /* Makes the overlay stay behind the text */
+}
+
+.hero h2 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+
+.hero .btn {
+    background-color: #f39c12;
+    color: white;
+    padding: 0.8em 2em;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1em;
+    font-size: 1.1em;
+}
+
+.hero .btn:hover {
+    background-color: #d35400;
+}
+/* Property section */
+.featured-properties {
+    padding: 2em;
+    background-color: #ece9e6;
+    margin-top: 3em; /* Adds gap before this section */
+}
+
+.property-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em; /* Adjust the gap between the property cards */
+    justify-content: center;
+}
+
+.property-card {
+    background-color: rgb(233, 232, 231);
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: calc(25% - 2em); /* 4 items in a row */
+    max-width: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.property-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.property-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1em;
+    text-align: center;
+}
+
+.card-body h5 {
+    font-size: 1.3em;
+    margin: 0.5em 0;
+}
+
+.card-body p {
+    font-size: 0.9em;
+    color: #888;
+}
+
+.card-body h6 {
+    font-size: 1.1em;
+    color: #060403;
+}
+
+.card-body a {
+    display: inline-block;
+    margin-top: 1em;
+    background-color: #2c3e50;
+    color: white;
+    padding: 0.5em 1.5em;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.card-body a:hover {
+    background-color: #34495e;
+}
+
+/* Property Type Heading */
+.property-type-heading {
+    background-color: #ce8206;
+    color: #010c03;
+    text-align: center;
+    padding: 10px;
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 2em; /* Adds space below the heading to avoid overlap with cards */
+    position: relative; /* Set to relative for proper flow */
+    width: 100%;
+}
+
+/* Responsive layout */
+@media (max-width: 1200px) {
+    .property-card {
+        width: calc(33.33% - 2em); /* 3 items in a row */
+    }
+}
+
+@media (max-width: 992px) {
+    .property-card {
+        width: calc(50% - 2em); /* 2 items in a row */
+    }
+}
+
+@media (max-width: 768px) {
+    .property-card {
+        width: 100%; /* 1 item in a row */
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 2em 0;
+    background-color: #2c3e50;
+    color: white;
+    margin-top: 3em; /* Adds gap before the footer */
+}
+
+footer p {
+    margin: 0;
+}
