@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Corelands - Login</title>
+    <link rel="stylesheet" href="/static/login.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Corelands</h1>
+        </div>
+    </header>
+
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Login</h2>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        <strong>{{ message }}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <form action="/auth_log/login" method="POST">
+                {% csrf_token %}
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <div class="signup-redirect">
+                <p>Don't have an account? <a href="/auth_log/signup">Sign up here</a></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Corelands. All rights reserved.</p>
+    </footer>
+</body>
+</html>

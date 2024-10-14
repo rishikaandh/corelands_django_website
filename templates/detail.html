@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="/static/detail.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Corelands</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Properties</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="product-page">
+        <div class="product-media">
+            <!-- Slideshow container for images -->
+            <div class="media-slideshow-container">
+                <!-- Image Slides -->
+                <div class="media-slide fade">
+                    <img src="https://via.placeholder.com/400" alt="Image 1">
+                </div>
+
+                <div class="media-slide fade">
+                    <img src="https://via.placeholder.com/400" alt="Image 2">
+                </div>
+
+                <div class="media-slide fade">
+                    <img src="https://via.placeholder.com/400" alt="Image 3">
+                </div>
+
+                <!-- Navigation buttons -->
+                <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+                <button class="next" onclick="plusSlides(1)">&#10095;</button>
+            </div>
+
+            <div class="media-thumbnails">
+                <!-- Thumbnail images -->
+                {% if property.image1 %}
+                <img src="{{ property.image1.url }}" onclick="showSlides(1)" alt="Image 1">
+                {% endif %}
+                {% if property.image2 %}
+                <img src="{{ property.image2.url }}" onclick="showSlides(2)" alt="Image 2">
+                {% endif %}
+                {% if property.image3 %}
+                <img src="{{ property.image3.url }}" onclick="showSlides(3)" alt="Image 3">
+                {% endif %}
+                {% if property.image4 %}
+                <img src="{{ property.image4.url }}" onclick="showSlides(4)" alt="Image 4">
+                {% endif %}
+                {% if property.image5 %}
+                <img src="{{ property.image5.url }}" onclick="showSlides(5)" alt="Image 5">
+                {% endif %}
+            </div>
+            
+            <!-- Video section -->
+            <div class="video-section">
+                {% if property.video1 %}
+                <video controls width="400">
+                    <source src="{{ property.video1.url }}" type="video/mp4">
+                </video>
+                {% endif %}
+                {% if property.video2 %}
+                <video controls width="400">
+                    <source src="{{ property.video2.url }}" type="video/mp4">
+                </video>
+                {% endif %}
+                {% if property.video3 %}
+                <video controls width="400">
+                    <source src="{{ property.video3.url }}" type="video/mp4">
+                </video>
+                {% endif %}
+                
+            </div>
+
+
+        <div class="product-details">
+            <h1>{{ property.location }} - {{ property.property_type }}</h1>
+            <p>Price: Rs. {{ property.price|floatformat:0 }}</p>
+            <p>Location: {{ property.location }}</p>
+            <p>Facing: {{ property.facing }}</p>
+            <p>Land Area: {{ property.land_area }} sqft</p>
+            <p>Number of Owners: {{ property.number_of_owners }}</p>
+            <p>Sale Type: {{ property.sale_type }}</p>
+            <button class="buy-now">Buy Now</button>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+    <script src="/static/detail.js"></script>
+</body>
+</html>
